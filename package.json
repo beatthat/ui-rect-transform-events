@@ -1,7 +1,7 @@
 {
   "name": "ui-rect-transform-events",
   "scope": "beatthat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Expose Unity3D UIBehavior events like OnRectTransformDimensionsChange as observable events",
   "main": "index.js",
   "scripts": {
