@@ -5,13 +5,22 @@ Use when you have a Unity3D UI component that has `RectTransform` children (or s
 ## Usage
 
 ```c#
-using BeatThat.FrameTime;
+using BeatThat.UIRectTransformEvents;
 
-var frame = FrameTimeUtils.TimeToFrame(1.5, 30); // 45
-var time = FrameTimeUtils.FrameToTime(frame, 30); // 1.5
+public class MyManagerComponent
+{
+    public RectTransform m_managedChild;
 
-// can also use them as ext functions on float, e.g.
-var t = frame.FrameToTime(30); // 1.5
+    void Start()
+    {
+        m_managedChild.AddComponent<RectTransformEvents>.onScreenRectChanged.AddListener(this.OnManagedChildScreenRectChanged);
+    }
+
+    private void OnManagedChildScreenRectChanged()
+    {
+        // do something
+    }
+}
 ```
 
 ## Install
@@ -19,6 +28,6 @@ var t = frame.FrameToTime(30); // 1.5
 From your unity project folder:
 
     npm init
-    npm install --save beatthat/frame-time
+    npm install --save beatthat/ui-rect-transform-events
 
 The package and all its dependencies will be installed under Assets/Plugins/packages.
